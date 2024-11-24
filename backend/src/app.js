@@ -1,5 +1,6 @@
 const express = require("express");
 const cors = require("cors");
+const path = require("path");
 
 const errorHandler = require("./errors/errorHandler");
 const notFound = require("./errors/notFound");
@@ -8,16 +9,22 @@ const dishesRouter = require("./dishes/dishes.router");
 
 const app = express();
 
-// You have not learned about CORS yet.
-// The following line let's this API be used by any website.
-app.use(cors());
+// CORS configuration
+const corsOptions = {
+  origin:
+    process.env.NODE_ENV === "production"
+      ? process.env.FRONTEND_URL
+      : "http://localhost:3000",
+};
+app.use(cors(corsOptions));
 app.use(express.json());
 
+// API routes
 app.use("/dishes", dishesRouter);
 app.use("/orders", ordersRouter);
 
+// Error handling
 app.use(notFound);
-
 app.use(errorHandler);
 
 module.exports = app;
