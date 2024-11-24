@@ -15,9 +15,9 @@
     "test:frontend": "cd frontend && npm test",
     "build": "npm run build:frontend && npm run build:backend",
     "build:frontend": "cd frontend && npm run build",
-    "build:backend": "cd backend && npm install --production",
+    "build:backend": "cd backend && npm run build",
     "clean": "rm -rf frontend/build backend/node_modules frontend/node_modules node_modules",
-    "vercel-build": "npm run install:all && npm run build"
+    "vercel-build": "npm run install:all && npm run build && cp -r frontend/build public"
   },
   "keywords": [
     "react",

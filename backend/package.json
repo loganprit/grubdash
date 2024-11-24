@@ -11,7 +11,7 @@
   "scripts": {
     "start": "node src/server.js",
     "dev": "nodemon src/server.js",
-    "build": "npm ci --production && npm cache clean --force",
+    "build": "npm ci --omit=dev",
     "test": "jest",
     "test:watch": "jest --watch",
     "clean": "rm -rf node_modules"
