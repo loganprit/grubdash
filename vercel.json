@@ -13,12 +13,19 @@
     ],
     "routes": [
       {
-        "src": "/api/(.*)",
+        "src": "/api/dishes",
+        "dest": "backend/src/server.js"
+      },
+      {
+        "src": "/api/orders",
         "dest": "backend/src/server.js"
       },
       {
         "src": "/(.*)",
         "dest": "frontend/build/$1"
       }
-    ]
+    ],
+    "env": {
+      "NODE_ENV": "production"
+    }
   }

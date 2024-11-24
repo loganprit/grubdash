@@ -4,8 +4,6 @@ const path = require("path");
 
 const errorHandler = require("./errors/errorHandler");
 const notFound = require("./errors/notFound");
-const ordersRouter = require("./orders/orders.router");
-const dishesRouter = require("./dishes/dishes.router");
 
 const app = express();
 
@@ -21,10 +19,6 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 app.use(express.json());
-
-// API routes
-app.use("/dishes", dishesRouter);
-app.use("/orders", ordersRouter);
 
 // Error handling
 app.use(notFound);
