@@ -24,7 +24,7 @@ headers.append("Content-Type", "application/json");
  *  a promise that resolves to the `json` data or an error.
  *  If the response is not in the 200 - 399 range the promise is rejected.
  */
-async function fetchJson(url, options) {
+async function fetchJson(url, options, onCancel) {
   try {
     const response = await fetch(url, options);
 
@@ -43,6 +43,7 @@ async function fetchJson(url, options) {
       console.error(error.stack);
       throw error;
     }
+    return Promise.resolve(onCancel);
   }
 }
 
@@ -53,7 +54,7 @@ async function fetchJson(url, options) {
  */
 export async function listDishes(signal) {
   const url = `${API_BASE_URL}/dishes`;
-  return await fetchJson(url, { signal });
+  return await fetchJson(url, { headers, signal }, []);
 }
 
 /**
@@ -93,7 +94,7 @@ export async function readOrder(orderId, signal) {
  */
 export async function listOrders(signal) {
   const url = `${API_BASE_URL}/orders`;
-  return await fetchJson(url, { signal });
+  return await fetchJson(url, { headers, signal }, []);
 }
 
 /**
