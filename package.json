@@ -1,0 +1,29 @@
+{
+  "name": "grubdash",
+  "version": "1.0.0",
+  "description": "Full stack GrubDash application with React frontend and Express backend",
+  "scripts": {
+    "start": "npm run start:dev",
+    "start:dev": "concurrently \"npm run start:dev:backend\" \"npm run start:dev:frontend\"",
+    "start:dev:backend": "cd backend && npm run start:dev",
+    "start:dev:frontend": "cd frontend && npm start",
+    "install:all": "npm install && npm run install:backend && npm run install:frontend",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "test": "npm run test:backend && npm run test:frontend",
+    "test:backend": "cd backend && npm test",
+    "test:frontend": "cd frontend && npm test",
+    "build": "cd frontend && npm run build"
+  },
+  "keywords": [
+    "react",
+    "express",
+    "fullstack",
+    "grubdash"
+  ],
+  "author": "",
+  "license": "ISC",
+  "devDependencies": {
+    "concurrently": "^8.2.2"
+  }
+}
