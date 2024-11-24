@@ -11,7 +11,7 @@ const app = express();
 const corsOptions = {
   origin:
     process.env.NODE_ENV === "production"
-      ? [process.env.VERCEL_URL, process.env.FRONTEND_URL].filter(Boolean)
+      ? process.env.FRONTEND_URL
       : "http://localhost:3000",
   methods: "GET,HEAD,PUT,PATCH,POST,DELETE",
   credentials: true,
@@ -19,6 +19,12 @@ const corsOptions = {
 };
 app.use(cors(corsOptions));
 app.use(express.json());
+
+const dishesRouter = require("./dishes/dishes.router");
+const ordersRouter = require("./orders/orders.router");
+
+app.use("/dishes", dishesRouter);
+app.use("/orders", ordersRouter);
 
 // Error handling
 app.use(notFound);
