@@ -4,8 +4,8 @@ This monorepo contains both the frontend and backend applications for GrubDash, 
 
 ## Project Structure
 
-.
-├── frontend/ # React frontend application
+.</br>
+├── frontend/ # React frontend application</br>
 └── backend/ # Express.js backend API
 
 ## Prerequisites
