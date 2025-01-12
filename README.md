@@ -1,6 +1,30 @@
 # GrubDash Monorepo
 
-This monorepo contains both the frontend and backend applications for GrubDash, a food delivery platform.
+This monorepo contains both the frontend and backend applications for GrubDash, a food delivery platform that allows users to browse restaurants, view menus, and place orders.
+
+## Features
+
+- Browse restaurant menus and dishes
+- Create, read, update, and delete dishes
+- Place and manage food orders
+- Real-time order status tracking
+- Responsive design for mobile and desktop
+
+## Technology Stack
+
+### Frontend
+
+- React.js
+- React Router for navigation
+- CSS for styling
+- Jest for testing
+
+### Backend
+
+- Express.js
+- RESTful API architecture
+- Jest for testing
+- JSON for data storage
 
 ## Project Structure
 
@@ -10,8 +34,8 @@ This monorepo contains both the frontend and backend applications for GrubDash, 
 
 ## Prerequisites
 
-- Node.js (Latest LTS version recommended)
-- npm (comes with Node.js)
+- Node.js (v14 or higher)
+- npm (v6 or higher)
 
 ## Installation
 
@@ -48,6 +72,24 @@ Backend only:
 npm run start:dev:backend
 ```
 
+## API Endpoints
+
+The backend provides the following RESTful endpoints:
+
+### Dishes
+
+- GET /dishes - List all dishes
+- POST /dishes - Create a new dish
+- GET /dishes/:dishId - Get a specific dish
+- PUT /dishes/:dishId - Update a dish
+
+### Orders
+
+- GET /orders - List all orders
+- POST /orders - Create a new order
+- GET /orders/:orderId - Get a specific order
+- PUT /orders/:orderId - Update an order status
+
 ## Testing
 
 Run all tests:
@@ -82,6 +124,10 @@ npm run build
 
 - `API_BASE_URL`: Base URL for the API (defaults to http://localhost:5000 if not set)
 
+### Backend
+
+- `PORT`: Port number for the server (defaults to 5000)
+
 ## Available Scripts
 
 - `npm run start:dev` - Start both frontend and backend in development mode
@@ -94,6 +140,14 @@ npm run build
 - `npm run test:frontend` - Run frontend tests
 - `npm run test:backend` - Run backend tests
 - `npm run build` - Create production build of frontend
+
+## Contributing
+
+1. Fork the repository
+2. Create a feature branch
+3. Commit your changes
+4. Push to the branch
+5. Open a Pull Request
 
 ## License
 
